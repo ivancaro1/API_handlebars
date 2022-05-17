@@ -1,20 +1,13 @@
 const express = require('express');
 const { webRouter } = require('./router/webRouter.js')
-const { engine } = require('express-handlebars')
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-const handlebarsConfig = {
-    defaultLayout: 'main.handlebars',
-    layoutsDir: __dirname + '/views/layouts'
-  }
 /* ------------------------------------------------------ */
-app.engine('handlebars', engine(handlebarsConfig))
-app.set('view engine', 'handlebars')
+app.set('view engine', 'ejs')
 app.set('views', './views')
-app.use(express.static('public'))
 
 app.use(webRouter)
 

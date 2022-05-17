@@ -5,10 +5,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// const handlebarsConfig = {
-//     defaultLayout: 'main.pug',
-//     layoutsDir: __dirname + '/views/layouts'
-//   }
 /* ------------------------------------------------------ */
 app.set('view engine', 'pug')
 app.set('views', './views')
