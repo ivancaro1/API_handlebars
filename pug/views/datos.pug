@@ -1,0 +1,24 @@
+extends layout
+
+block datos
+  h1(style='color:crimson;') Vista de productos
+    if hayProduct
+      .table-responsive
+        table.table.table-dark
+          tr(style='color: yellow;')
+            th Nombre
+            th Precio
+            th Foto
+          each val in nombres
+            tr
+              td
+                p=val.title
+              td
+                p=val.price
+              td
+                img(src=val.thumbnail width='80' height='80')
+      
+          else
+            h3.alert.alert-danger no hay nombres para mostrar...
+    form(method='get' action='/')
+            button(type='submit') Ingresar nuevo producto
